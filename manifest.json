@@ -1,0 +1,20 @@
+{
+  "name": "quadratic-equation-calculator",
+  "short_name": "qe-calculator",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color":"rgb(253, 231, 231)",
+  "theme_color": "white",
+  "icons": [
+    {
+      "src": "qecalculator.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "qecalculatur.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

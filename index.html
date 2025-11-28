@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <link rel='manifest' href="manifest.json">
+<meta name="viepoint" content=" width=device-width,initial-scale=1.0">
+   <title>QE calculator</title>
+   <div class="header">
+    <h2>
+       Quadratic Equation Calculator 
+    </h2>  
+   </div>
+   <style>
+      *{
+         margin:0;
+         padding:0;
+      }
+      body{
+         background-color:rgb(253, 231, 231);
+      }
+    .header{
+       text-align: center;
+       background-color: rgb(245, 51, 132);
+       color: white;
+       padding:20px;
+       
+    } 
+    .container{
+       display:flex;
+       justify-content: center;
+   align-items:center; 
+    } 
+    .answer{
+     padding:20 ;
+background-color: rgb(253, 231, 231); 
+     border: 2px solid black;
+     height:100px;
+     width:320px;
+     margin-top:10px;     justify-content:center;
+   align-items:center;
+      margin-bottom:20px;
+    }
+ 
+    .inputcontainer{
+     display:grid;    justify-content:center;
+   align-items:center;  
+     }
+     .inputcontainer input {
+        height:50px;
+        padding:5px;
+        font-size:20px;
+     }
+     button {
+        background-color:  rgb(194, 113, 147);
+        color:white;
+     border:none;
+     height:50px;   
+     border:none;
+     width:330px;
+    font-size:20px;
+
+    padding:10px;
+    margin-bottom:15px;
+     }
+     button:hover{
+               background-color: rgb(245, 51, 132);
+     }
+     .answer p{
+        font-size:25px;
+        font-weight:bold;
+      padding-left:15px;
+       padding-top:6px; 
+     }
+   </style>
+</head>
+<body>
+   <div class="container">
+      <div class="answer">
+        <p class="x1">X<sub>1</sub>=<span class="r1"></span></span></p> </p>
+      <p class="x2" >X<sub>2</sub> =<span class="r2"></span></p>  
+      </div>   
+      </div>
+    <div class="inputcontainer" >
+      <input type="number"class="aValue" placeholder="enter  a"><br>
+         <input type="number" class="bValue"placeholder="enter  b"> <br>
+        <input type="number" class="cValue"placeholder="enter  c"> 
+        <br>
+        <button onclick="calculate()" class ="calculate">calculate</button> 
+        <button onclick='   r1.textContent= "";
+        r2.textContent= "";
+        avalue.value="";
+        bvalue.value="";
+        cvalue.value="";' class="reset">reset</button>
+   </div>
+   
+</body>
+<script>
+  if("serviceWorker" in navigator ){
+              navigator.serviceWorker.register('service-worker.js')
+            }
+
+  let avalue=document.querySelector(".aValue")
+  let bvalue=document.querySelector(".bValue")
+  let cvalue=document.querySelector(".cValue")
+  const answer=document.querySelector(".answer")  
+    const r1=document.querySelector(".r1")
+      const r2=document.querySelector(".r2")
+  
+
+  function calculate(){
+   let root;
+   let root2;
+   let ainput=2*avalue.value;
+   let binput =bvalue.value;
+  let d=((bvalue.value)
+*(bvalue.value)-(4*avalue.value*cvalue.value));
+let negativeRoot=Math.sqrt(-(d));
+if((avalue.value||bvalue.value||cvalue.value)===""){
+   root=" "+0;
+   root2= ' '+0;
+}else if(d>=0){
+root=((-(binput)+Math.sqrt(d))/ainput.toFixed(2))
+root2=( (-(binput)-Math.sqrt(d))/ainput.toFixed(2))
+}else if(d<0){
+root=`-${binput}+${negativeRoot.toFixed(2)}/${ainput}`
+root2=`-${binput}-${negativeRoot.toFixed(2)}/${ainput}`
+}
+   r1.textContent=" "+ root;
+   r2.textContent= " "+ root2;
+  
+  }
+  function clear(){
+   r1.value= " ";
+   r2.value= " ";
+   avalue.value=" ";
+   bvalue.value=" ";
+   cvalue.value=" ";
+  }
+</script>
+</html>
